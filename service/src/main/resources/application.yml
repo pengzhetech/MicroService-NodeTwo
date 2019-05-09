@@ -1,2 +1,13 @@
 server:
   port: 8080
+dubbo:
+  application:
+    name: dubbo-provider
+  registry:
+    address: nacos://11.239.163.65:8848
+  protocol:
+    name: dubbo
+    port: -1
+  service:
+    version: 1.0.0
+    name: dobbo-service
