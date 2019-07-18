@@ -7,6 +7,7 @@ dubbo:
     qosAcceptForeignIp: true
   registry:
     address: zookeeper://47.106.238.98:2181
+    simplified: true
   protocol:
     name: dubbo
     port: 28880
