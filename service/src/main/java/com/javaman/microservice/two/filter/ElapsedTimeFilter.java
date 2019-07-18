@@ -19,6 +19,7 @@ public class ElapsedTimeFilter implements Filter {
     private static Logger log = LoggerFactory
         .getLogger(ElapsedTimeFilter.class);
 
+
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         long start = System.currentTimeMillis();
