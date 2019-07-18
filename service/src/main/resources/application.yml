@@ -2,12 +2,14 @@ server:
   port: 8080
 dubbo:
   application:
-    name: dubbo-provider
+    name: dubbo-comsumer
+    qosEnable: true
+    qosAcceptForeignIp: true
   registry:
     address: nacos://11.239.163.65:8848
   protocol:
     name: dubbo
-    port: -1
+    port: 28880
   service:
     version: 1.0.0
     name: dobbo-service
