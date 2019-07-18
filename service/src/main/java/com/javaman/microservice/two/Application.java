@@ -1,7 +1,7 @@
 package com.javaman.microservice.two;
 
-import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +17,7 @@ import java.util.Arrays;
  */
 
 @SpringBootApplication
-//@EnableDubbo
+@EnableDubbo
 @Slf4j
 @EnableSwagger2
 public class Application {
@@ -27,12 +27,12 @@ public class Application {
         ConfigurableApplicationContext applicationContext = application.run(args);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 
-        System.out.println("实例化Bean数量:" + beanDefinitionNames.length);
+      /*  System.out.println("实例化Bean数量:" + beanDefinitionNames.length);
         //  Arrays.asList(beanDefinitionNames).forEach(System.out::println);
         Arrays.asList(beanDefinitionNames).forEach(beanName -> {
             Object bean = applicationContext.getBean(beanName);
             System.out.println("bean的名称:" + beanName + "------bean类名:" + bean.getClass().getName());
-        });
+        });*/
 
     }
 }
