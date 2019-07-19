@@ -44,7 +44,7 @@ public class ProviderConfiguration {
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress(registryAddr);
-        //registryConfig.setSimplified(false);
+        registryConfig.setSimplified(false);
         return registryConfig;
     }
 
