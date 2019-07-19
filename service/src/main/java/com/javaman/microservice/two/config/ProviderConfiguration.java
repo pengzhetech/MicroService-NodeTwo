@@ -23,9 +23,8 @@ public class ProviderConfiguration {
     private String protocolName;
     @Value("${dubbo.protocol.port}")
     private int protocolPort;
-
-  /*  @Value("${dubbo.application.name}")
-    private String applicationName;*/
+    @Value("${application.name}")
+    private String applicationName;
 
     /**
      * 当前应用配置
@@ -33,7 +32,7 @@ public class ProviderConfiguration {
     @Bean("dubbo-annotation-provider")
     public ApplicationConfig applicationConfig() {
         ApplicationConfig applicationConfig = new ApplicationConfig();
-        applicationConfig.setName("provider");
+        applicationConfig.setName(applicationName);
         return applicationConfig;
     }
 
