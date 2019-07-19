@@ -1,5 +1,7 @@
 package com.javaman.microservice.two.config;
 
+import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.ProtocolConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,16 +19,44 @@ public class ProviderConfiguration {
 
     @Value("${dubbo.registry.address}")
     private String registryAddr;
+    @Value("${dubbo.protocol.name}")
+    private String protocolName;
+    @Value("${dubbo.protocol.port}")
+    private int protocolPort;
+
+  /*  @Value("${dubbo.application.name}")
+    private String applicationName;*/
+
+    /**
+     * 当前应用配置
+     */
+    @Bean("dubbo-annotation-provider")
+    public ApplicationConfig applicationConfig() {
+        ApplicationConfig applicationConfig = new ApplicationConfig();
+        applicationConfig.setName("provider");
+        return applicationConfig;
+    }
 
     /**
      * 当前连接注册中心配置
      */
-    @Bean("my-registry")
+    @Bean("zk-registry")
     public RegistryConfig registryConfig() {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setAddress(registryAddr);
-        registryConfig.setSimplified(true);
+        //registryConfig.setSimplified(false);
         return registryConfig;
+    }
+
+    /**
+     * 当前连接注册中心配置
+     */
+    @Bean("dubbo")
+    public ProtocolConfig protocolConfig() {
+        ProtocolConfig protocolConfig = new ProtocolConfig();
+        protocolConfig.setName(protocolName);
+        protocolConfig.setPort(protocolPort);
+        return protocolConfig;
     }
 
 }

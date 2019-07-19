@@ -1,10 +1,6 @@
 server:
   port: 8080
 dubbo:
-  application:
-    name: dubbo-provider
-    qosEnable: true
-    qosAcceptForeignIp: true
   registry:
     address: zookeeper://47.106.238.98:2181
     simplified: true

@@ -7,6 +7,8 @@ import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Arrays;
@@ -18,11 +20,9 @@ import java.util.stream.Collectors;
  * @date 2019-05-09 22:28
  * @description
  */
-
 @SpringBootApplication
 @EnableDubbo
 @Slf4j
-@EnableDubboConfig
 @EnableSwagger2
 public class Application {
     public static void main(String[] args) {
@@ -31,13 +31,14 @@ public class Application {
         ConfigurableApplicationContext applicationContext = application.run(args);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 
-       System.out.println("实例化Bean数量:" + beanDefinitionNames.length);
+        System.out.println("实例化Bean数量:" + beanDefinitionNames.length);
         //  Arrays.asList(beanDefinitionNames).forEach(System.out::println);
       /*  Arrays.asList(beanDefinitionNames).forEach(beanName -> {
             Object bean = applicationContext.getBean(beanName);
             System.out.println("bean的名称:" + beanName + "------bean类名:" + bean.getClass().getName());
         });*/
-        List<String> collect = Arrays.asList(beanDefinitionNames).stream().filter(beanDefinitionName -> "my-registry".equalsIgnoreCase(beanDefinitionName)).collect(Collectors.toList());
+        List<String> collect = Arrays.asList(beanDefinitionNames).stream().filter(
+            beanDefinitionName -> "my-registry".equalsIgnoreCase(beanDefinitionName)).collect(Collectors.toList());
         System.out.println(collect);
 
     }
