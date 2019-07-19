@@ -1,10 +1,10 @@
 server:
-  port: 8080
+  port: 8082
 application:
   name: pengzhetechprovider
 dubbo:
   registry:
-    address: nacos://11.239.163.65:8848
+    address: zookeeper://47.106.238.98:2181
     simplified: true
   protocol:
     name: dubbo
@@ -12,3 +12,5 @@ dubbo:
   service:
     version: 1.0.0
     name: dobbo-service
+  metadata-report:
+    address: zookeeper://47.106.238.98:2181
