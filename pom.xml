@@ -7,6 +7,7 @@
     <groupId>com.javaman.microservice.nodetwo</groupId>
     <artifactId>nodetwo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>生产者</name>
     <modules>
         <module>common</module>
         <module>service</module>
