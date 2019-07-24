@@ -1,19 +1,16 @@
 package com.javaman.microservice.two;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
-import org.apache.dubbo.config.spring.context.annotation.EnableDubboConfig;
 import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author pengzhe
@@ -38,7 +35,7 @@ public class Application {
             System.out.println("bean的名称:" + beanName + "------bean类名:" + bean.getClass().getName());
         });*/
         List<String> collect = Arrays.asList(beanDefinitionNames).stream().filter(
-            beanDefinitionName -> "my-registry".equalsIgnoreCase(beanDefinitionName)).collect(Collectors.toList());
+            beanDefinitionName -> "zk-registry".equalsIgnoreCase(beanDefinitionName)).collect(Collectors.toList());
         System.out.println(collect);
 
     }
